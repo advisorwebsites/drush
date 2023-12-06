@@ -51,16 +51,14 @@ class DrushInputAdapter implements InputInterface
     /**
      *  {@inheritdoc}
      */
-    public function getFirstArgument()
-    {
+    public function getFirstArgument(): ?string {
         return reset($this->arguments);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function hasParameterOption($values, $onlyParams = false)
-    {
+    public function hasParameterOption(string|array $values, bool $onlyParams = false): bool {
         $values = (array) $values;
 
         foreach ($values as $value) {
@@ -75,7 +73,7 @@ class DrushInputAdapter implements InputInterface
     /**
      *  {@inheritdoc}
      */
-    public function getParameterOption($values, $default = false, $onlyParams = false)
+    public function getParameterOption(string|array $values, string|bool|int|float|array|null $default = false, bool $onlyParams = false)
     {
         $values = (array) $values;
 
@@ -107,8 +105,7 @@ class DrushInputAdapter implements InputInterface
     /**
      *  {@inheritdoc}
      */
-    public function getArguments()
-    {
+    public function getArguments(): array {
         return $this->arguments;
     }
 
@@ -132,16 +129,14 @@ class DrushInputAdapter implements InputInterface
     /**
      *  {@inheritdoc}
      */
-    public function hasArgument($name)
-    {
+    public function hasArgument($name): bool {
         return isset($this->arguments[$name]);
     }
 
     /**
      *  {@inheritdoc}
      */
-    public function getOptions()
-    {
+    public function getOptions(): array {
         return $this->options;
     }
 
@@ -164,16 +159,14 @@ class DrushInputAdapter implements InputInterface
     /**
      *  {@inheritdoc}
      */
-    public function hasOption($name)
-    {
+    public function hasOption($name): bool {
         return isset($this->options[$name]);
     }
 
     /**
      *  {@inheritdoc}
      */
-    public function isInteractive()
-    {
+    public function isInteractive(): bool {
         return $this->interactive;
     }
 
